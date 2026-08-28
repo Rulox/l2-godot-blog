@@ -121,6 +121,15 @@ a:hover { text-decoration: underline; }
   display: block;
   margin: 20px auto;
 }
+.post-body video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 20px auto;
+  background: #000;
+}
 .post-body figure { margin: 24px 0; }
 .post-body figcaption { text-align: center; color: var(--muted); font-size: 14px; margin-top: 8px; }
 .post-body blockquote {
