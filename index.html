@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<section class="intro">
+  <p>I played Lineage 2 since C1, back when I was in high school. I spent way too
+  many hours in those grind spots, and I met a lot of people there, some of them
+  became real friends. I always missed those days.</p>
+
+  <p>So I started taking the old Interlude client apart and rebuilding its world
+  inside Godot 4. This is my notebook for it. I write down what I did, what worked,
+  and what broke, mostly so I do not forget.</p>
+</section>
+
+<ol class="post-list">
+  {% assign ordered = site.posts | sort: 'date' %}
+  {% for post in ordered %}
+  {% assign num = forloop.index %}
+  <li class="post-card">
+    {% if post.thumbnail %}
+    <a class="post-thumb" href="{{ post.url | relative_url }}">
+      <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}">
+    </a>
+    {% endif %}
+    <div class="post-meta">
+      <span class="post-num">Part {{ num }}</span>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+      <p class="post-extract">{{ post.description }}</p>
+    </div>
+  </li>
+  {% endfor %}
+</ol>

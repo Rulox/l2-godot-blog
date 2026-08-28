@@ -1,0 +1,23 @@
+title: Rebuilding Lineage 2 (Interlude) in Godot
+description: Notes on rebuilding Lineage 2's world in Godot 4.
+disclaimer: Built with a lot of help from AI, mostly for the asset extraction and the scripts.
+future: true
+
+# GitHub Pages project site lives under /<repo-name>/
+baseurl: "/l2-godot-blog"
+url: "https://rulox.github.io"
+
+# Show newest work first? We keep it chronological so you can follow the journey
+# from step one. The index handles the ordering.
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+
+permalink: /posts/:title/
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
