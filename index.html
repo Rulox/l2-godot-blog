@@ -11,10 +11,11 @@ layout: default
   and what broke, mostly so I do not forget.</p>
 </section>
 
-<ol class="post-list">
+<ol class="post-list" reversed>
   {% assign ordered = site.posts | sort: 'date' %}
-  {% for post in ordered %}
-  {% assign num = forloop.index %}
+  {% assign total = ordered | size %}
+  {% for post in ordered reversed %}
+  {% assign num = total | minus: forloop.index0 %}
   <li class="post-card">
     {% if post.thumbnail %}
     <a class="post-thumb" href="{{ post.url | relative_url }}">
