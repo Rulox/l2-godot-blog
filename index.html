@@ -9,13 +9,16 @@ layout: default
   <p>So I started taking the old Interlude client apart and rebuilding its world
   inside Godot 4. This is my notebook for it. I write down what I did, what worked,
   and what broke, mostly so I do not forget.</p>
+
+  {% assign part_one = site.parts | where: 'part', 1 | first %}
+  {% if part_one %}
+  <p><a class="cta" href="{{ part_one.url | relative_url }}">Link to Part 1</a></p>
+  {% endif %}
 </section>
 
 <ol class="post-list" reversed>
-  {% assign ordered = site.posts | sort: 'date' %}
-  {% assign total = ordered | size %}
+  {% assign ordered = site.parts | sort: 'part' %}
   {% for post in ordered reversed %}
-  {% assign num = total | minus: forloop.index0 %}
   <li class="post-card">
     {% if post.thumbnail %}
     <a class="post-thumb" href="{{ post.url | relative_url }}">
@@ -23,7 +26,7 @@ layout: default
     </a>
     {% endif %}
     <div class="post-meta">
-      <span class="post-num">Part {{ num }}</span>
+      <span class="post-num">Part {{ post.part }}</span>
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
       <p class="post-extract">{{ post.description }}</p>

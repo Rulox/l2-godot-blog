@@ -7,15 +7,16 @@ future: true
 baseurl: "/l2-godot-blog"
 url: "https://rulox.github.io"
 
-# Show newest work first? We keep it chronological so you can follow the journey
-# from step one. The index handles the ordering.
+# Posts are a "parts" collection so files can be named by number (1.md, 2.md, ...).
+# Ordering and next-part links use the `part` front matter field.
+collections:
+  parts:
+    output: true
 
 markdown: kramdown
 highlighter: rouge
 kramdown:
   syntax_highlighter: rouge
-
-permalink: /posts/:title/
 
 exclude:
   - README.md

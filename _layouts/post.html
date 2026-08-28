@@ -9,5 +9,16 @@ layout: default
   <div class="post-body">
     {{ content }}
   </div>
-  <a class="back-link" href="{{ '/' | relative_url }}">&larr; Back to all posts</a>
+
+  {% assign next_num = page.part | plus: 1 %}
+  {% assign next_part = site.parts | where: 'part', next_num | first %}
+  <nav class="post-nav">
+    {% if next_part %}
+    <a class="next-part" href="{{ next_part.url | relative_url }}">
+      <span class="next-label">Next part &rarr;</span>
+      <span class="next-title">{{ next_part.title }}</span>
+    </a>
+    {% endif %}
+    <a class="back-link" href="{{ '/' | relative_url }}">&larr; Back to all posts</a>
+  </nav>
 </article>
